@@ -1,34 +1,194 @@
 <div class="home-container">
+  <!-- Header/Navigation -->
   <header class="header">
-    <h1>Bem-vindo ao Projeto Angular</h1>
-    <p class="subtitle">Sua aplicação está funcionando perfeitamente!</p>
+    <div class="logo">
+      <h1>🚗 Classic Wheels</h1>
+      <p class="tagline">Alugue História, Dirija Elegância</p>
+    </div>
+    <nav class="nav">
+      <a href="#frota">Frota</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
   </header>
 
-  <main class="content">
-    <div class="card">
-      <h2>Sobre o jlqca project</h2>
-      <p>Este é um projeto Angular inicial com uma tela de home configurada e pronta para ser personalizada.</p>
-    </div>
-
-    <div class="features">
-      <div class="feature-card">
-        <h3>Roteamento</h3>
-        <p>Sistema de rotas configurado</p>
-      </div>
-
-      <div class="feature-card">
-        <h3>Componentes</h3>
-        <p>Arquitetura modular com componentes standalone</p>
-      </div>
-
-      <div class="feature-card">
-        <h3>Pronto para uso</h3>
-        <p>Comece a desenvolver suas funcionalidades</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <h2 class="hero-title">Reviva a Era de Ouro do Automobilismo</h2>
+      <p class="hero-description">
+        Alugue carros clássicos e antigos para momentos inesquecíveis.
+        Casamentos, eventos, ensaios fotográficos e viagens especiais.
+      </p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary">Ver Catálogo</button>
+        <button class="btn btn-secondary">Fazer Reserva</button>
       </div>
     </div>
-  </main>
+  </section>
 
-  <footer class="footer">
-    <p>Desenvolvido com Angular</p>
+  <!-- Featured Cars Section -->
+  <section class="featured-cars" id="frota">
+    <h2 class="section-title">Carros em Destaque</h2>
+    <div class="cars-grid">
+      <div class="car-card">
+        <div class="car-image vintage-1">
+          <span class="car-year">1967</span>
+        </div>
+        <div class="car-info">
+          <h3>Ford Mustang</h3>
+          <p class="car-description">Icônico muscle car americano com motor V8</p>
+          <div class="car-details">
+            <span class="detail">V8 4.7L</span>
+            <span class="detail">Manual</span>
+            <span class="detail">Gasolina</span>
+          </div>
+          <div class="car-price">
+            <span class="price">R$ 800/dia</span>
+            <button class="btn-small">Reservar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="car-card">
+        <div class="car-image vintage-2">
+          <span class="car-year">1975</span>
+        </div>
+        <div class="car-info">
+          <h3>Volkswagen Fusca</h3>
+          <p class="car-description">Clássico brasileiro, perfeito para eventos especiais</p>
+          <div class="car-details">
+            <span class="detail">1.6L</span>
+            <span class="detail">Manual</span>
+            <span class="detail">Gasolina</span>
+          </div>
+          <div class="car-price">
+            <span class="price">R$ 400/dia</span>
+            <button class="btn-small">Reservar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="car-card">
+        <div class="car-image vintage-3">
+          <span class="car-year">1960</span>
+        </div>
+        <div class="car-info">
+          <h3>Chevrolet Impala</h3>
+          <p class="car-description">Luxo e elegância dos anos 60</p>
+          <div class="car-details">
+            <span class="detail">V8 5.7L</span>
+            <span class="detail">Automático</span>
+            <span class="detail">Gasolina</span>
+          </div>
+          <div class="car-price">
+            <span class="price">R$ 950/dia</span>
+            <button class="btn-small">Reservar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="car-card">
+        <div class="car-image vintage-4">
+          <span class="car-year">1972</span>
+        </div>
+        <div class="car-info">
+          <h3>Mercedes-Benz 280SE</h3>
+          <p class="car-description">Sofisticação alemã em sua melhor forma</p>
+          <div class="car-details">
+            <span class="detail">2.8L</span>
+            <span class="detail">Automático</span>
+            <span class="detail">Gasolina</span>
+          </div>
+          <div class="car-price">
+            <span class="price">R$ 1.200/dia</span>
+            <button class="btn-small">Reservar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits" id="sobre">
+    <h2 class="section-title">Por Que Escolher a Classic Wheels?</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">🏆</div>
+        <h3>Qualidade Premium</h3>
+        <p>Todos os veículos são restaurados e mantidos em perfeito estado de conservação</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">📋</div>
+        <h3>Documentação Completa</h3>
+        <p>Todos os carros possuem documentação em dia e seguro total</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">🎭</div>
+        <h3>Eventos Especiais</h3>
+        <p>Especializados em casamentos, formaturas e ensaios fotográficos</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">💎</div>
+        <h3>Experiência Única</h3>
+        <p>Mais de 15 anos proporcionando momentos inesquecíveis</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">🛠️</div>
+        <h3>Manutenção Rigorosa</h3>
+        <p>Manutenção preventiva e corretiva realizada por especialistas</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">🤝</div>
+        <h3>Atendimento Personalizado</h3>
+        <p>Equipe dedicada para tornar sua experiência perfeita</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta">
+    <div class="cta-content">
+      <h2>Pronto para Sua Experiência Clássica?</h2>
+      <p>Entre em contato conosco e reserve o carro dos seus sonhos</p>
+      <div class="cta-buttons">
+        <button class="btn btn-large">Fazer Reserva Agora</button>
+        <button class="btn btn-outline">Falar com Especialista</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contato">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Classic Wheels</h3>
+        <p>Aluguel de carros antigos e clássicos para todas as ocasiões</p>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <p>📞 (11) 98765-4321</p>
+        <p>📧 contato@classicwheels.com</p>
+        <p>📍 São Paulo - SP</p>
+      </div>
+      <div class="footer-section">
+        <h4>Horário</h4>
+        <p>Seg - Sex: 9h às 18h</p>
+        <p>Sábado: 9h às 14h</p>
+        <p>Domingo: Fechado</p>
+      </div>
+      <div class="footer-section">
+        <h4>Redes Sociais</h4>
+        <p>Instagram | Facebook | YouTube</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Classic Wheels - Todos os direitos reservados</p>
+    </div>
   </footer>
 </div>
