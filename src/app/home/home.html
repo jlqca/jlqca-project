@@ -9,8 +9,102 @@
       <a href="#frota">Frota</a>
       <a href="#sobre">Sobre</a>
       <a href="#contato">Contato</a>
+      <button class="btn-canvas-toggle" (click)="toggleCanvas()">
+        {{ showCanvas ? '✖ Fechar Lousa' : '✏️ Abrir Lousa' }}
+      </button>
     </nav>
   </header>
+
+  <!-- Drawing Canvas Modal -->
+  <div class="canvas-modal" *ngIf="showCanvas" (click)="toggleCanvas()">
+    <div class="canvas-container" (click)="$event.stopPropagation()">
+      <!-- Toolbar -->
+      <div class="canvas-toolbar">
+        <div class="toolbar-section">
+          <h3>Ferramentas</h3>
+          <div class="tool-buttons">
+            <button
+              class="tool-btn"
+              [class.active]="currentTool === 'pencil'"
+              (click)="selectTool('pencil')"
+              title="Lápis">
+              ✏️
+            </button>
+            <button
+              class="tool-btn"
+              [class.active]="currentTool === 'eraser'"
+              (click)="selectTool('eraser')"
+              title="Borracha">
+              🧹
+            </button>
+            <button
+              class="tool-btn"
+              [class.active]="currentTool === 'select'"
+              (click)="selectTool('select')"
+              title="Selecionar Área">
+              ⬚
+            </button>
+          </div>
+        </div>
+
+        <div class="toolbar-section">
+          <h3>Cores</h3>
+          <div class="color-picker">
+            <button
+              *ngFor="let color of ['#000000', '#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ffffff']"
+              class="color-btn"
+              [style.background-color]="color"
+              [class.active]="currentColor === color"
+              (click)="changeColor(color)">
+            </button>
+            <input
+              type="color"
+              [(ngModel)]="currentColor"
+              (change)="changeColor(currentColor)"
+              class="color-input">
+          </div>
+        </div>
+
+        <div class="toolbar-section">
+          <h3>Espessura</h3>
+          <div class="line-width-control">
+            <input
+              type="range"
+              min="1"
+              max="20"
+              [(ngModel)]="lineWidth"
+              (input)="changeLineWidth(lineWidth)"
+              class="width-slider">
+            <span class="width-value">{{lineWidth}}px</span>
+          </div>
+        </div>
+
+        <div class="toolbar-section">
+          <h3>Ações</h3>
+          <div class="action-buttons">
+            <button class="action-btn" (click)="undo()" title="Desfazer">↶ Desfazer</button>
+            <button class="action-btn" (click)="redo()" title="Refazer">↷ Refazer</button>
+            <button class="action-btn" (click)="clearCanvas()" title="Limpar Tudo">🗑️ Limpar</button>
+            <button class="action-btn" (click)="downloadImage()" title="Baixar Imagem">💾 Salvar</button>
+          </div>
+        </div>
+
+        <button class="close-canvas-btn" (click)="toggleCanvas()">✖ Fechar</button>
+      </div>
+
+      <!-- Canvas -->
+      <div class="canvas-wrapper">
+        <canvas
+          #drawingCanvas
+          class="drawing-canvas"
+          (mousedown)="startDrawing($event)"
+          (mousemove)="draw($event)"
+          (mouseup)="stopDrawing()"
+          (mouseleave)="stopDrawing()">
+        </canvas>
+      </div>
+    </div>
+  </div>
 
   <!-- Hero Section -->
   <section class="hero">

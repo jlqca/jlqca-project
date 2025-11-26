@@ -1,1 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* FORÇAR SELEÇÃO DE TEXTO - IMPORTANTE */
+* {
+  user-select: auto !important;
+  -webkit-user-select: auto !important;
+  -moz-user-select: auto !important;
+  -ms-user-select: auto !important;
+  -webkit-touch-callout: default !important;
+}
+
+/* Remover qualquer bloqueio de pointer */
+*, *::before, *::after {
+  pointer-events: auto !important;
+}
+
+/* Apenas botões não devem ter seleção de texto */
+button {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  cursor: pointer;
+}
+
+/* Links devem ser clicáveis */
+a {
+  cursor: pointer;
+}
