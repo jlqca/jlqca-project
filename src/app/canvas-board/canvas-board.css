@@ -1,0 +1,377 @@
+/* ============================================
+   CANVAS BOARD CONTAINER
+   ============================================ */
+.canvas-board-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #2d3748;
+  overflow: hidden;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.board-header {
+  background: #1a202c;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Connection Status */
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: #2d3748;
+  border: 2px solid #e53e3e;
+  transition: all 0.3s ease;
+}
+
+.connection-status.connected {
+  border-color: #48bb78;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e53e3e;
+  animation: pulse-red 2s ease-in-out infinite;
+}
+
+.connection-status.connected .status-dot {
+  background: #48bb78;
+  animation: pulse-green 2s ease-in-out infinite;
+}
+
+.status-text {
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+@keyframes pulse-red {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse-green {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.7);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 0 5px rgba(72, 187, 120, 0);
+  }
+}
+
+.back-btn {
+  background: transparent;
+  color: #e2e8f0;
+  border: 2px solid #4a5568;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #4a5568;
+  border-color: #667eea;
+  transform: translateX(-3px);
+}
+
+.board-title {
+  color: #e2e8f0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* ============================================
+   BOARD CONTENT
+   ============================================ */
+.board-content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* ============================================
+   TOOLBAR
+   ============================================ */
+.board-toolbar {
+  width: 250px;
+  background: #1a202c;
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-right: 2px solid #4a5568;
+}
+
+.toolbar-section h3 {
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.8rem;
+}
+
+/* Tool Buttons */
+.tool-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tool-btn {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #4a5568;
+  background: #2d3748;
+  border-radius: 8px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tool-btn:hover {
+  background: #4a5568;
+  transform: scale(1.05);
+}
+
+.tool-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: #667eea;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+}
+
+/* Color Picker */
+.color-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.color-btn {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #4a5568;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.color-btn:hover {
+  transform: scale(1.15);
+}
+
+.color-btn.active {
+  border-color: #667eea;
+  box-shadow: 0 0 15px rgba(102, 126, 234, 0.8);
+  transform: scale(1.2);
+}
+
+.color-input {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #4a5568;
+  border-radius: 8px;
+  background: #2d3748;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.color-input:hover {
+  border-color: #667eea;
+}
+
+/* Line Width Control */
+.line-width-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.width-slider {
+  width: 100%;
+  height: 8px;
+  background: #4a5568;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.width-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+.width-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+.width-value {
+  color: #e2e8f0;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  padding: 0.7rem 1rem;
+  background: #2d3748;
+  border: 2px solid #4a5568;
+  color: #e2e8f0;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  background: #4a5568;
+  border-color: #667eea;
+  transform: translateX(5px);
+}
+
+/* ============================================
+   CANVAS WRAPPER
+   ============================================ */
+.canvas-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: #374151;
+}
+
+.drawing-canvas {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  cursor: crosshair;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+  .board-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .board-title {
+    font-size: 1.2rem;
+  }
+
+  .board-content {
+    flex-direction: column;
+  }
+
+  .board-toolbar {
+    width: 100%;
+    max-height: 35vh;
+    border-right: none;
+    border-bottom: 2px solid #4a5568;
+    padding: 1rem;
+  }
+
+  .toolbar-section {
+    margin-bottom: 1rem;
+  }
+
+  .tool-buttons {
+    justify-content: center;
+  }
+
+  .canvas-wrapper {
+    padding: 1rem;
+  }
+
+  .back-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .header-left {
+    gap: 1rem;
+  }
+}
+
+/* ============================================
+   SCROLLBAR CUSTOMIZATION
+   ============================================ */
+.board-toolbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.board-toolbar::-webkit-scrollbar-track {
+  background: #1a202c;
+}
+
+.board-toolbar::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 4px;
+}
+
+.board-toolbar::-webkit-scrollbar-thumb:hover {
+  background: #667eea;
+}
